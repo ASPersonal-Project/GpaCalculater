@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <div  class="content"> 
+            <div class="header">
+                <h1>GPA Calculater</h1>
+            </div>
+            <div class="form1">
+                <form action="">
+                    <input id="credit" type="text" placeholder="credit">
+                        <select name="" id="letter">
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D+">D+</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                        </select>
+                        <br><br>
+                    <button id="btn" type="button"  onclick="getElement()">submit</button>
+                </form>
+            </div>
+             <div class="form2">
+                    <form action="">
+                        <input id="gpa"  type="text" placeholder="GPA">
+                    </form>
+            </div>
+            <p id="p1"></p>
+            <p id="p2"></p>
+        
+            <script>
+                var totalpoint = 0.0;
+                var totalcredit = 0;
+                
+                function getElement(){
+                var credit,letter;
+                credit = document.getElementById("credit").value;
+                letter = document.getElementById("letter").value;
+                //document.getElementById("p1").innerHTML = credit;
+                //document.getElementById("p2").innerHTML = letter;
+                var valueOfgpa = getGpavalue(letter);
+                //document.getElementById("p2").innerHTML = valueOfgpa;
+                var totalGpa = calculateGpa(valueOfgpa,credit);
+                //document.getElementById("p2").innerHTML = totalGpa.toFixed(2);
+                document.getElementById("gpa").value = totalGpa.toFixed(2);
+                document.getElementById("credit").value = "";
+                
+
+
+                }
+
+                function getGpavalue(getLetter){
+                    //document.getElementById("p2").innerHTML = getLetter;
+                    var Gpavalue;
+                    switch(getLetter){
+                        case "A+":
+                            Gpavalue = 4.00;
+                            //document.getElementById("p2").innerHTML = Gpavalue;
+                            break;
+                        case "A":
+                            Gpavalue = 4.00;
+                            //document.getElementById("p2").innerHTML = Gpavlaue;
+                            break;
+                        case "A-":
+                            Gpavalue = 3.70;
+                            break;
+                        case "B+":
+                            Gpavalue = 3.30;
+                            break;
+                        case "B":
+                            Gpavalue = 3.00;
+                            break;
+                        case "B-":
+                            Gpavalue = 2.70;
+                            break;
+                        case "C+":
+                            Gpavalue = 2.30;
+                            break;
+                        case "C":
+                            Gpavalue = 2.00;
+                            break;
+                        case "C-":
+                            Gpavalue = 1.70;
+                            break;
+                        case "D+":
+                            Gpavalue = 1.30;
+                            break;
+                        case "D":
+                            Gpavalue = 1.00;
+                            break;
+                        case "E":
+                            Gpavalue = 0.00;
+                            break;
+                        default:
+                            Gpavalue = 0;
+                    }
+                    //document.getElementById("p2").innerHTML = Gpavlaue;
+                    return Gpavalue;
+                }
+
+                function calculateGpa(noOfpoint,noOfcredit){
+                    //document.getElementById("p1").innerHTML = noOfpoint;
+                    //document.getElementById("p2").innerHTML = noOfcredit;
+                    totalpoint = totalpoint + noOfpoint*noOfcredit;
+                    totalcredit = totalcredit + (+noOfcredit);
+
+                    var Gpa =totalpoint/totalcredit; 
+                    
+                    return Gpa;
+
+                    //document.getElementById("p2").innerHTML = Gpa.toFixed(2);
+
+                    //document.getElementById("p1").innerHTML  = totalpoint;
+
+
+
+                }
+            </script>
+
+        
+        
+    </body>
+</html>
