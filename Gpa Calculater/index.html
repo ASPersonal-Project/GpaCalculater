@@ -43,12 +43,8 @@
                 var credit,letter;
                 credit = document.getElementById("credit").value;
                 letter = document.getElementById("letter").value;
-                //document.getElementById("p1").innerHTML = credit;
-                //document.getElementById("p2").innerHTML = letter;
                 var valueOfgpa = getGpavalue(letter);
-                //document.getElementById("p2").innerHTML = valueOfgpa;
                 var totalGpa = calculateGpa(valueOfgpa,credit);
-                //document.getElementById("p2").innerHTML = totalGpa.toFixed(2);
                 document.getElementById("gpa").value = totalGpa.toFixed(2);
                 document.getElementById("credit").value = "";
                 
@@ -57,16 +53,15 @@
                 }
 
                 function getGpavalue(getLetter){
-                    //document.getElementById("p2").innerHTML = getLetter;
-                    var Gpavalue;
+                   
                     switch(getLetter){
                         case "A+":
                             Gpavalue = 4.00;
-                            //document.getElementById("p2").innerHTML = Gpavalue;
+                            
                             break;
                         case "A":
                             Gpavalue = 4.00;
-                            //document.getElementById("p2").innerHTML = Gpavlaue;
+                    
                             break;
                         case "A-":
                             Gpavalue = 3.70;
@@ -101,26 +96,16 @@
                         default:
                             Gpavalue = 0;
                     }
-                    //document.getElementById("p2").innerHTML = Gpavlaue;
                     return Gpavalue;
                 }
 
                 function calculateGpa(noOfpoint,noOfcredit){
-                    //document.getElementById("p1").innerHTML = noOfpoint;
-                    //document.getElementById("p2").innerHTML = noOfcredit;
                     totalpoint = totalpoint + noOfpoint*noOfcredit;
                     totalcredit = totalcredit + (+noOfcredit);
 
                     var Gpa =totalpoint/totalcredit; 
                     
                     return Gpa;
-
-                    //document.getElementById("p2").innerHTML = Gpa.toFixed(2);
-
-                    //document.getElementById("p1").innerHTML  = totalpoint;
-
-
-
                 }
             </script>
 
